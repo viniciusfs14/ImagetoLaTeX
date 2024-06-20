@@ -1,33 +1,40 @@
 from PIL import Image
 from pix2tex.cli import LatexOCR
-import PySimpleGUI as sg 
+from gui.ui_main import Ui_MainWindow 
+import sys, os
+from PySide6 import QtWidgets
 
-x = ""
-instrucoes = 'O programa vai pedir o diretório da sua imagem então inserir o caminho da imagem como demonstrado o exemplo abaixo: \n \nC:\\Users\\55319\\Desktop\\teste.png'
-sg.theme('LightBrown13')
-window_size = (600,600)
-layout = [
-    [sg.Text('ImgToLaTeX', size=(300,1), justification='center', font=('Comic Sans',20), text_color='Black')],
-    [sg.Text('')],
-    [sg.Text('Instruções', size=(300,1), justification='center', font=('Comic Sans',15), text_color='Black')],
-    [sg.Text('')],
-    [sg.Multiline(default_text=instrucoes, size=(300,10), autoscroll = True, disabled = True, font=('Comic Sans',12))],
-    [sg.InputText(key='-INPUT-', size=(300,1))],
-    [sg.Text()],
-    [sg.Button('Enviar', size=(300,1), font=('Comic Sans',12))],
-    [sg.Text('', size=(300, 1), key='-OUTPUT-', font=('Comic Sans',12))]
-]
-window = sg.Window('ImgToLaTeX', layout, size=window_size)
+    
+class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        self.setupUi(self)
+        
+        self.pushButton.released.connect(self.locate_path)
+        self.convert.released.connect(self.converter)
 
-while True:
-    event, values = window.read()
-    if event == sg.WINDOW_CLOSED:
-        break
-    elif event == 'Enviar':
-        dir = values['-INPUT-']
+        
+    
+    def locate_path(self):  # Calling the File Browser Widget
+        data_path = QtWidgets.QFileDialog.getOpenFileName(
+            self,
+            caption="Search for the data file",
+            filter="Png Files (*.png);;All Files (*)",
+        )[0]
+        self.linha.setText(data_path)
+        
+        
+    def converter(self):
+        dir = self.linha.text()
         img = Image.open(dir)
         model = LatexOCR()
         x = model(img)
-        window['-OUTPUT-'].update(x)
+        self.linha2.setText(x)
+        
+        
+app = QtWidgets.QApplication(sys.argv)
+window = MainWindow()
+window.show()
+sys.exit(app.exec())    
 
-window.close()
+        
