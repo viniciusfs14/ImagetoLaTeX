@@ -64,6 +64,10 @@ QPushButton{
           </item>
           <item>
            <widget class="QPushButton" name="convert">
+            <property name="styleSheet">
+             <string notr="true">background-color: red;
+color: white </string>
+            </property>
             <property name="text">
              <string>Converter</string>
             </property>
@@ -98,12 +102,15 @@ QPushButton{
              </font>
             </property>
             <property name="text">
-             <string>Instruções</string>
+             <string/>
             </property>
            </widget>
           </item>
          </layout>
         </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QWidget" name="equation" native="true"/>
        </item>
        <item row="2" column="0">
         <widget class="QWidget" name="bottom" native="true">
@@ -113,6 +120,7 @@ QPushButton{
             <property name="font">
              <font>
               <pointsize>15</pointsize>
+              <bold>false</bold>
              </font>
             </property>
             <property name="text">
@@ -125,8 +133,31 @@ QPushButton{
           </item>
           <item alignment="Qt::AlignRight">
            <widget class="QPushButton" name="pushButton">
+            <property name="styleSheet">
+             <string notr="true">background-color: red;
+color: white </string>
+            </property>
             <property name="text">
              <string>Buscar</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QWidget" name="info" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item alignment="Qt::AlignBottom">
+           <widget class="QLabel" name="label_4">
+            <property name="font">
+             <font>
+              <italic>true</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>© ImgToLaTeX - Vinícius Fernandes Silvestre - 2024</string>
             </property>
            </widget>
           </item>
@@ -138,17 +169,6 @@ QPushButton{
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

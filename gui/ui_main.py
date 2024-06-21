@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainiUmAlz.ui'
+## Form generated from reading UI file 'mainrICAup.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QLineEdit, QMainWindow, QMenuBar, QPushButton,
-    QSizePolicy, QStatusBar, QVBoxLayout, QWidget)
+    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -75,6 +75,8 @@ class Ui_MainWindow(object):
 
         self.convert = QPushButton(self.baixo)
         self.convert.setObjectName(u"convert")
+        self.convert.setStyleSheet(u"background-color: red;\n"
+"color: white ")
 
         self.horizontalLayout_3.addWidget(self.convert)
 
@@ -105,13 +107,23 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.header, 1, 0, 1, 1)
 
+        self.equation = QWidget(self.widget)
+        self.layout_equation = QVBoxLayout()
+        self.equation.setLayout(self.layout_equation)
+        self.equation.setObjectName(u"equation")
+
+        self.gridLayout_2.addWidget(self.equation, 4, 0, 1, 1)
+
         self.bottom = QWidget(self.widget)
         self.bottom.setObjectName(u"bottom")
         self.horizontalLayout = QHBoxLayout(self.bottom)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.path = QLabel(self.bottom)
         self.path.setObjectName(u"path")
-        self.path.setFont(font)
+        font3 = QFont()
+        font3.setPointSize(15)
+        font3.setBold(False)
+        self.path.setFont(font3)
 
         self.horizontalLayout.addWidget(self.path, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
@@ -122,23 +134,34 @@ class Ui_MainWindow(object):
 
         self.pushButton = QPushButton(self.bottom)
         self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setStyleSheet(u"background-color: red;\n"
+"color: white ")
 
         self.horizontalLayout.addWidget(self.pushButton, 0, Qt.AlignRight)
 
 
         self.gridLayout_2.addWidget(self.bottom, 2, 0, 1, 1)
 
+        self.info = QWidget(self.widget)
+        self.info.setObjectName(u"info")
+        self.verticalLayout_2 = QVBoxLayout(self.info)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label_4 = QLabel(self.info)
+        self.label_4.setObjectName(u"label_4")
+        font4 = QFont()
+        font4.setBold(False)
+        font4.setItalic(True)
+        self.label_4.setFont(font4)
+
+        self.verticalLayout_2.addWidget(self.label_4, 0, Qt.AlignBottom)
+
+
+        self.gridLayout_2.addWidget(self.info, 5, 0, 1, 1)
+
 
         self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QMenuBar(MainWindow)
-        self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 22))
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QStatusBar(MainWindow)
-        self.statusbar.setObjectName(u"statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
 
@@ -150,8 +173,9 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Equa\u00e7\u00e3o: ", None))
         self.convert.setText(QCoreApplication.translate("MainWindow", u"Converter", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"ImgToLaTeX", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Instru\u00e7\u00f5es", None))
+        self.label_3.setText("")
         self.path.setText(QCoreApplication.translate("MainWindow", u"Caminho:", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u00a9 ImgToLaTeX - Vin\u00edcius Fernandes Silvestre - 2024", None))
     # retranslateUi
 
